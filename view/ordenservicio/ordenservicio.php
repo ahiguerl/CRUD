@@ -17,7 +17,7 @@
     </thead>
     <tbody>
     <?php foreach($this->model->Listar() as $r): ?>
-        <tr>
+        <tr id="<?php echo $r->id; ?>"> 
             <td><?php echo $r->id; ?></td>
             <td><?php echo $r->idCliente; ?></td>
             <td><?php echo $r->fechaHora; ?></td>
