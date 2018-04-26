@@ -11,14 +11,20 @@ if(!isset($_REQUEST['c']))
   $controller = new $controller;
   $controller->Index();
 }
-else
-{
+else{
   if (isset($_REQUEST['ajax'])) {
     require_once "controller/$controller.controller.php";
     $controller = ucwords($controller) . 'Controller';
     $controller = new $controller;
     $controller->ActivarAjax();
-  } else {
+  }
+  else if (isset($_REQUEST['delAjax'])) {
+    require_once "controller/$controller.controller.php";
+    $controller = ucwords($controller) . 'Controller';
+    $controller = new $controller;
+    $controller->EliminarAjax();
+  }
+  else{
     // Obtenemos el controlador que queremos cargar
     $controller = strtolower($_REQUEST['c']);
     $accion = isset($_REQUEST['a']) ? $_REQUEST['a'] : 'Index';

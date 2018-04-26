@@ -49,10 +49,9 @@ class OrdenServicio
 
 	public function Eliminar($id){
 		try{
-			$stm = $this->pdo
-			->prepare("DELETE FROM ordenservicio WHERE id = ?");
-
+			$stm = $this->pdo->prepare("DELETE FROM ordenservicio WHERE id = ?");
 			$stm->execute(array($id));
+			echo json_encode(array('m'=>'Delete'));
 		}
 		catch (Exception $e){
 			die($e->getMessage());
@@ -109,4 +108,5 @@ class OrdenServicio
 			die($e->getMessage());
 		}
 	}
+
 }

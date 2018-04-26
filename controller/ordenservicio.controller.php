@@ -57,6 +57,10 @@ class OrdenServicioController{
     $alm->id > 0 ? $this->model->Actualizar($alm) : $this->model->Registrar($alm);
   }
 
+  public function EliminarAjax(){
+    $this->model->Eliminar($_REQUEST['id']);
+  }
+
   public function Eliminar(){
     $this->model->Eliminar($_REQUEST['id']);
     header('Location: index.php');
