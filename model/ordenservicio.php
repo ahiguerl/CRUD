@@ -80,7 +80,7 @@ class OrdenServicio
 				)
 			);
 
-			echo json_encode(array('m'=>'Update'));
+			echo json_encode(array('m'=>'Se ha actualizado la orden ' . $data->id));
 		}
 		catch (Exception $e){
 			die($e->getMessage());
@@ -102,7 +102,8 @@ class OrdenServicio
 					$data->costoTotal
 				)
 			);
-			echo json_encode(array('m'=>'Registro'));
+
+			echo json_encode(array('m'=>'Orden exitosamente registrada!'));
 		}
 		catch (Exception $e){
 			die($e->getMessage());

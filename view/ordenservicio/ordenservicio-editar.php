@@ -1,10 +1,10 @@
 <h1 class="page-header">
-    <?php echo $alm->id != null ? $alm->id : 'Nuevo Registro'; ?>
+    <?php echo $alm->id != null ? 'Orden '.$alm->id : 'Nuevo Registro'; ?>
 </h1>
 
 <ol class="breadcrumb">
   <li><a href="?c=OrdenServicio">Listado de Órdenes de servicio</a></li>
-  <li class="active"><?php echo $alm->id != null ? $alm->id : 'Nuevo Registro'; ?></li>
+  <li class="active"><?php echo $alm->id != null ? 'Orden '.$alm->id : 'Nuevo Registro'; ?></li>
 </ol>
 
 <form id="frm-orden" method="post" >

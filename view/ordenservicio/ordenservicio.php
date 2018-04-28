@@ -38,18 +38,25 @@
 </table>
 <script>
   function Eliminar(idVal){
-    $.ajax({
-      // Set parametro 'delAjax'
-      url: "index.php?delAjax=1&c=OrdenServicio",
-      type: "POST",
-      dataType: "json",
-      data: {id: idVal.id},
-      success: function (result) {
-        //Eliminación de la fila
-        var num = "# + div1";
-          $('#f' + idVal.id).remove();
-        console.log(result.m);
-      }
-    })
+    confirm("¿Seguro que quiere eliminar la orden "+idVal.id+"?") ?
+    ($.ajax({
+        // Set parametro 'delAjax'
+        url: "index.php?delAjax=1&c=OrdenServicio",
+        type: "POST",
+        dataType: "json",
+        data: {id: idVal.id},
+        success: function (result) {
+          //Eliminación de la fila
+          if (result.m == "Delete") {
+            var num = "# + div1";
+              $('#f' + idVal.id).remove();
+            console.log(result.m);
+          } else {
+            alert("No se ha podido borrar la orden");
+          }
+        }
+      })
+    ): alert("Cancelado");
+  // cierre
   }
 </script>
